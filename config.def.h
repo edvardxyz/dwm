@@ -1,19 +1,19 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Hack:pixelsize=12:antialias=true:autohint=true", "Wuncon Siji" };
 static const char dmenufont[]       = "Hack:pixelsize=12:antialias=true:autohint=true";
-static const char normbgcolor[]       = "#1e1e1e";
-static const char normbordercolor[]       = "#1e1e1e";
-static const char normfgcolor[]       = "#51afef";
-static const char selfgcolor[]       = "#51afef";
-static const char selbordercolor[]        = "#2257a0";
-static const char selbgcolor[]        = "#3f3f3f";
+static const char normbgcolor[]     = "#1e1e1e";
+static const char normbordercolor[] = "#1e1e1e";
+static const char normfgcolor[]     = "#51afef";
+static const char selfgcolor[]      = "#51afef";
+static const char selbordercolor[]  = "#2257a0";
+static const char selbgcolor[]      = "#3f3f3f";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
