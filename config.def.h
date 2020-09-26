@@ -10,7 +10,7 @@ static const char *fonts[]          = { "Hack:pixelsize=12:antialias=true:autohi
 static const char dmenufont[]       = "Hack:pixelsize=12:antialias=true:autohint=true";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#ebdbb2";
+static const char col_gray3[]       = "#d79921";
 static const char col_gray4[]       = "#ebdbb2";
 static const char col_cyan[]        = "#ebdbb2";
 static const char *colors[][3]      = {
