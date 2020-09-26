@@ -17,7 +17,7 @@ static const char selbgcolor[]        = "#98be65";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
-	[SchemeSel]  = { selfgcolor, slbgcolor,  selbordercolor  },
+	[SchemeSel]  = { selfgcolor, selbgcolor,  selbordercolor  },
 };
 
 /* swallow emacs */
