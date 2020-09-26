@@ -88,7 +88,7 @@ static const char *refbarcmd[] = { "refbar", NULL };
 static const char *kblayoutcmd[] = { "kblayout", NULL };
 static const char *mpvclipcmd[] = { "mpvclip", NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *scrotwikicmd[]  = { "wikiscrot -s", NULL };
+static const char *scrotwikicmd[]  = { "wikiscrot", "-s", NULL };
 static const char *scrotcmd[]  = { "scrot", NULL };
 
 
@@ -100,7 +100,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		        XK_l,	   spawn,          {.v = kblayoutcmd } },
 	{ MODKEY|ShiftMask,		        XK_l,	   spawn,          {.v = refbarcmd } },
 	{ MODKEY|ShiftMask,		        XK_s,	   spawn,          {.v = scrotwikicmd } },
-	{ MODKEY|ShiftMask,		        XK_f,	   spawn,          {.v = scrot } },
+	{ MODKEY|ShiftMask,		        XK_f,	   spawn,          {.v = scrotcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,            			XK_s,  	   togglescratch,  {.ui = 0 } },
 	{ MODKEY,            			XK_n,	   togglescratch,  {.ui = 1 } },
