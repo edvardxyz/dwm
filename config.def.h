@@ -41,7 +41,7 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { " \ue17e"," \ue17f"," \ue180"," \ue181"," \ue182"," \ue183"," \ue184"," \ue185"," \ue186" };
+static const char *tags[] = { " "," "," "," "," "," "," "," "," " };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -64,9 +64,9 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ " \ue0b5",      tile },    /* first entry is default */
-	{ " \ue0b9",      NULL },    /* no layout function means floating behavior */
-	{ " \ue0b4",      monocle },
+	{ " ",      tile },    /* first entry is default */
+	{ " ",      NULL },    /* no layout function means floating behavior */
+	{ " ",      monocle },
 };
 
 /* key definitions */
