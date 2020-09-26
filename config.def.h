@@ -99,6 +99,7 @@ static const char *mpvclipcmd[] = { "mpvclip", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *importcmd[]  = { "printfull", NULL };
 static const char *slockcmd[]  = { "slock", NULL };
+static const char *barrefcmd[]  = { "barupdate", NULL };
 
 /* commands spawned when clicking statusbar, the mouse button pressed is exported as BUTTON */
 static char *statuscmds[] = { "deletenotify", "btcclick", "cputempclick", "memclick", "layoutclick", "wificlick", "brightnessclick", "dateclick", "timeclick" };
@@ -141,8 +142,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
     { 0,                            XF86XK_MonBrightnessUp, spawn, {.v = brightnessupcmd } },
     { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = brightnessdowncmd } },
-    { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
-    { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } },
+    { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd,barrefcmd } },
+    { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd,barrefcmd } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
