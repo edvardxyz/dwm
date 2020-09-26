@@ -24,6 +24,10 @@ static const char *colors[][3]      = {
     [SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
+/* swallow emacs */
+static const char emacsclient[] = "emacsclient";
+static const char emacsname[] = "emacs@";
+
 typedef struct {
 	const char *name;
 	const void *cmd;
