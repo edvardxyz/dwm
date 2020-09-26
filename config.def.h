@@ -31,11 +31,13 @@ typedef struct {
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "nnn", NULL };
 const char *spcmd3[] = {"st", "-n", "passmenu", "-g", "58x14", "-e", "passmenunew",  NULL };
+const char *spcmd4[] = {"st", "-n", "scrot", "-g", "58x14", "-e", "wikiscrot",  NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"spranger",    spcmd2},
 	{"passmenu",   spcmd3},
+	{"scrot",   spcmd4},
 };
 
 /* tagging */
@@ -52,6 +54,7 @@ static const Rule rules[] = {
 	{ NULL,		"spterm",	NULL,		   SPTAG(0),   1,		  1,          1,        -1 },
 	{ NULL,		"spfm",		NULL,		   SPTAG(1),   1,		  1,          1,        -1 },
 	{ NULL,		"passmenu", NULL,	   	   SPTAG(2),   1,		  1,          1,        -1 },
+	{ NULL,		"scrot", NULL,	   	   SPTAG(3),   1,		  1,          1,        -1 },
 };
 
 /* layout(s) */
@@ -88,7 +91,6 @@ static const char *refbarcmd[] = { "refbar", NULL };
 static const char *kblayoutcmd[] = { "kblayout", NULL };
 static const char *mpvclipcmd[] = { "mpvclip", NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *scrotwikicmd[]  = { "wikiscrot", "-s", NULL };
 static const char *scrotcmd[]  = { "scrot", NULL };
 
 
@@ -99,12 +101,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_y,      spawn,          {.v = mpvclipcmd } },
 	{ MODKEY|ShiftMask,		        XK_l,	   spawn,          {.v = kblayoutcmd } },
 	{ MODKEY|ShiftMask,		        XK_l,	   spawn,          {.v = refbarcmd } },
-	{ MODKEY|ShiftMask,		        XK_s,	   spawn,          {.v = scrotwikicmd } },
 	{ MODKEY|ShiftMask,		        XK_f,	   spawn,          {.v = scrotcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,            			XK_s,  	   togglescratch,  {.ui = 0 } },
 	{ MODKEY,            			XK_n,	   togglescratch,  {.ui = 1 } },
 	{ MODKEY|ShiftMask,           	XK_p,	   togglescratch,  {.ui = 2 } },
+	{ MODKEY|ShiftMask,           	XK_s,	   togglescratch,  {.ui = 3 } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
