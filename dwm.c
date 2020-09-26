@@ -473,7 +473,8 @@ containsemacsclient(pid_t p)
     fscanf(f, "%s", pidname);
     pclose(f);
 
-    return strstr(pidname, emacsclient) != NULL;
+    return !(strcmp(pidname, emacsclient));
+/*    return strstr(pidname, emacsclient) != NULL; */
 }
 
 pid_t
@@ -2301,9 +2302,8 @@ termforwin(const Client *w)
 	for (m = mons; m; m = m->next) {
 		for (c = m->clients; c; c = c->next) {
 			if (c->isterminal && !c->swallowing && c->pid &&
-			    (isdescprocess(c->pid, w->pid) ||
-			     (containsemacsclient(c->pid) && (strstr(w->name,emacsname)))))
-				return c;
+				(isdescprocess(c->pid, w->pid) ||
+				 (containsemacsclient(c->pid) && (strstr(w->name,emacsname)))))
 		}
 	}
 
