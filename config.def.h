@@ -31,13 +31,13 @@ typedef struct {
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "nnn", NULL };
 const char *spcmd3[] = {"st", "-n", "passmenu", "-g", "58x14", "-e", "passmenunew",  NULL };
-const char *spcmd4[] = {"st", "-n", "scrot", "-g", "58x14", "-e", "wikiscrot",  NULL };
+const char *spcmd4[] = {"st", "-n", "screenshot", "-g", "50x10", "-e", "prtscname",  NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"spranger",    spcmd2},
 	{"passmenu",   spcmd3},
-	{"scrot",   spcmd4},
+	{"screenshot",   spcmd4},
 };
 
 /* tagging */
@@ -87,11 +87,11 @@ static const char *brightnessupcmd[] = { "brightnessctl", "s", "5%+", NULL };
 static const char *brightnessdowncmd[] = { "brightnessctl", "s", "5%-", NULL };
 static const char *volupcmd[] = { "amixer", "sset", "Master", "2%+", NULL };
 static const char *voldowncmd[] = { "amixer", "sset", "Master", "2%-", NULL };
-static const char *refbarcmd[] = { "refbar", NULL };
 static const char *kblayoutcmd[] = { "kblayout", NULL };
 static const char *mpvclipcmd[] = { "mpvclip", NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *scrotcmd[]  = { "scrot", NULL };
+static const char *importcmd[]  = { "import", "-window", "root", "-quality", "100", "$(date +%F).png", NULL };
+static const char *slockcmd[]  = { "slock", NULL };
 
 
 #include <X11/XF86keysym.h>
@@ -100,9 +100,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_y,      spawn,          {.v = mpvclipcmd } },
 	{ MODKEY|ShiftMask,		        XK_l,	   spawn,          {.v = kblayoutcmd } },
-	{ MODKEY|ShiftMask,		        XK_l,	   spawn,          {.v = refbarcmd } },
-	{ MODKEY|ShiftMask,		        XK_f,	   spawn,          {.v = scrotcmd } },
+	{ MODKEY|ShiftMask,		        XK_f,	   spawn,          {.v = importcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_g,      spawn,          {.v = slockcmd } },
 	{ MODKEY,            			XK_s,  	   togglescratch,  {.ui = 0 } },
 	{ MODKEY,            			XK_n,	   togglescratch,  {.ui = 1 } },
 	{ MODKEY|ShiftMask,           	XK_p,	   togglescratch,  {.ui = 2 } },
@@ -130,12 +130,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
     { 0,                            XF86XK_MonBrightnessUp, spawn, {.v = brightnessupcmd } },
     { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = brightnessdowncmd } },
-    { 0,                            XF86XK_MonBrightnessUp, spawn, {.v = refbarcmd } },
-    { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = refbarcmd } },
     { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
     { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } },
-    { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = refbarcmd } },
-    { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = refbarcmd } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
