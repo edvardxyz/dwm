@@ -141,9 +141,13 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
     { 0,                            XF86XK_MonBrightnessUp, spawn, {.v = brightnessupcmd } },
+    { 0,                            XF86XK_MonBrightnessUp, spawn, {.v = barrefcmd } },
     { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = brightnessdowncmd } },
-    { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd,barrefcmd } },
-    { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } {.v = barrefcmd} },
+    { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = barrefcmd } },
+    { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
+    { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = barrefcmd } },
+    { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } },
+    { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = barrefcmd } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
