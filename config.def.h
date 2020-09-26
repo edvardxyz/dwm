@@ -5,21 +5,26 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
+static const char *fonts[]          = { "Hack:pixelsize=10:antialias=true:autohint=true", "Siji" };
+static const char dmenufont[]       = "Hack:pixelsize=10:antialias=true:autohint=true";
+static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_gray3[]       = "#ebdbb2";
+static const char col_gray4[]       = "#ebdbb2";
+static const char col_cyan[]        = "#ebdbb2";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+    [SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+    [SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { " \ue17e"," \ue17f"," \ue180"," \ue181"," \ue182"," \ue183"," \ue184"," \ue185"," \ue186" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -28,19 +33,18 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ " \ue0b5",      tile },    /* first entry is default */
+	{ " \ue0b9",      NULL },    /* no layout function means floating behavior */
+	{ " \ue0b4",      monocle },
 };
 
 /* key definitions */
@@ -56,12 +60,25 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray2, "-sf", col_gray4, NULL };
+static const char *passmenu[] = { "passcheck", NULL };
+static const char *brightnessupcmd[] = { "brightnessctl", "s", "5%+", NULL };
+static const char *brightnessdowncmd[] = { "brightnessctl", "s", "5%-", NULL };
+static const char *volupcmd[] = { "amixer", "sset", "Master", "2%+", NULL };
+static const char *voldowncmd[] = { "amixer", "sset", "Master", "2%-", NULL };
+static const char *refbarcmd[] = { "refbar", NULL };
+static const char *kblayoutcmd[] = { "kblayout", NULL };
+static const char *mpvclipcmd[] = { "mpvclip", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+#include <X11/XF86keysym.h>
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_y,      spawn,          {.v = mpvclipcmd } },
+	{ MODKEY|ShiftMask,		XK_p,	   spawn,          {.v = passmenu } },
+	{ MODKEY|ShiftMask,		XK_l,	   spawn,          {.v = kblayoutcmd } },
+	{ MODKEY|ShiftMask,		XK_l,	   spawn,          {.v = refbarcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -84,6 +101,14 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    { 0,                            XF86XK_MonBrightnessUp, spawn, {.v = brightnessupcmd } },
+    { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = brightnessdowncmd } },
+    { 0,                            XF86XK_MonBrightnessUp, spawn, {.v = refbarcmd } },
+    { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = refbarcmd } },
+    { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
+    { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } },
+    { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = refbarcmd } },
+    { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = refbarcmd } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
