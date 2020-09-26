@@ -30,7 +30,7 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "nnn", NULL };
-const char *spcmd3[] = {"st", "-n", "passmenu", "-g", "120x34", "passmenu",  NULL };
+const char *spcmd3[] = {"st", "-n", "passmenu", "-g", "120x34", "-e", "passmenu",  NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
@@ -49,9 +49,9 @@ static const Rule rules[] = {
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "st-256color",NULL,   NULL,          0,         0,          1,           0,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
-	{ NULL,		"spterm",	NULL,		   SPTAG(0),   1,		  -1,          1,        -1 },
-	{ NULL,		"spfm",		NULL,		   SPTAG(1),   1,		  -1,          1,        -1 },
-	{ NULL,		"passmenu", NULL,	   	   SPTAG(2),   1,		  -1,          1,        -1 },
+	{ NULL,		"spterm",	NULL,		   SPTAG(0),   1,		  1,          1,        -1 },
+	{ NULL,		"spfm",		NULL,		   SPTAG(1),   1,		  1,          1,        -1 },
+	{ NULL,		"passmenu", NULL,	   	   SPTAG(2),   1,		  1,          1,        -1 },
 };
 
 /* layout(s) */
