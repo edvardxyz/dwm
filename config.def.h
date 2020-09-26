@@ -26,7 +26,7 @@ static const char *colors[][3]      = {
 
 /* swallow emacs */
 static const char emacsclient[] = "emacsclient";
-static const char emacsname[] = "emacs@gentoo";
+static const char emacsname[] = "emacs@";
 
 typedef struct {
 	const char *name;
