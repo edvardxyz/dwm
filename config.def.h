@@ -143,7 +143,7 @@ static Key keys[] = {
     { 0,                            XF86XK_MonBrightnessUp, spawn, {.v = brightnessupcmd } },
     { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = brightnessdowncmd } },
     { 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd,barrefcmd } },
-    { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd,barrefcmd } },
+    { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } {.v = barrefcmd} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
