@@ -6,7 +6,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack:pixelsize=12:antialias=true:autohint=true", "-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1" };
+static const char *fonts[]          = { "Hack:pixelsize=12:antialias=true:autohint=true", "Siji" };
 static const char dmenufont[]       = "Hack:pixelsize=12:antialias=true:autohint=true";
 static const char normbgcolor[]       = "#1e1e1e";
 static const char normbordercolor[]       = "#1e1e1e";
