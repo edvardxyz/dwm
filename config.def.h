@@ -31,11 +31,11 @@ typedef struct {
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "nnn", NULL };
 const char *spcmd3[] = {"st", "-n", "passmenu", "-g", "58x14", "-e", "passmenunew",  NULL };
-const char *spcmd4[] = {"st", "-n", "screenshot", "-g", "50x10", "-e", "prtscname",  NULL };
+const char *spcmd4[] = {"st", "-n", "screenshot", "-g", "40x10", "-e", "prtscname",  NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
-	{"spranger",    spcmd2},
+	{"spfm",    spcmd2},
 	{"passmenu",   spcmd3},
 	{"screenshot",   spcmd4},
 };
@@ -54,7 +54,7 @@ static const Rule rules[] = {
 	{ NULL,		"spterm",	NULL,		   SPTAG(0),   1,		  1,          1,        -1 },
 	{ NULL,		"spfm",		NULL,		   SPTAG(1),   1,		  1,          1,        -1 },
 	{ NULL,		"passmenu", NULL,	   	   SPTAG(2),   1,		  1,          1,        -1 },
-	{ NULL,		"scrot", NULL,	   	   SPTAG(3),   1,		  1,          1,        -1 },
+	{ NULL,		"screenshot", NULL,	   	   SPTAG(3),   1,		  1,          1,        -1 },
 };
 
 /* layout(s) */
