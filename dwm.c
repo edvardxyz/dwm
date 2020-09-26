@@ -2304,6 +2304,7 @@ termforwin(const Client *w)
 			if (c->isterminal && !c->swallowing && c->pid &&
 				(isdescprocess(c->pid, w->pid) ||
 				 (containsemacsclient(c->pid) && (strstr(w->name,emacsname)))))
+				return c;
 		}
 	}
 
