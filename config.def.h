@@ -8,15 +8,16 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Hack:pixelsize=12:antialias=true:autohint=true", "-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1" };
 static const char dmenufont[]       = "Hack:pixelsize=12:antialias=true:autohint=true";
-static const char col_gray1[]       = "#000000";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#d79921";
-static const char col_gray4[]       = "#ebdbb2";
-static const char col_cyan[]        = "#ebdbb2";
+static const char normbgcolor[]       = "#000000";
+static const char normbordercolor[]       = "#DFDFDF";
+static const char normfgcolor[]       = "#2257A0"";
+static const char selfgcolor[]       = "#ff6655";
+static const char selbordercolor[]        = "#21242b";
+static const char selbgcolor[]        = "#98be65";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
+	[SchemeSel]  = { selfgcolor, slbgcolor,  selbordercolor  },
 };
 
 /* swallow emacs */
