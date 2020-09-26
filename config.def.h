@@ -8,12 +8,12 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Hack:pixelsize=12:antialias=true:autohint=true", "-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1" };
 static const char dmenufont[]       = "Hack:pixelsize=12:antialias=true:autohint=true";
-static const char normbgcolor[]       = "#282c34";
-static const char normbordercolor[]       = "#282c34";
+static const char normbgcolor[]       = "#1e1e1e";
+static const char normbordercolor[]       = "#1e1e1e";
 static const char normfgcolor[]       = "#51afef";
 static const char selfgcolor[]       = "#51afef";
 static const char selbordercolor[]        = "#2257a0";
-static const char selbgcolor[]        = "#525252";
+static const char selbgcolor[]        = "#2e2e2e";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
