@@ -90,7 +90,7 @@ static const char *voldowncmd[] = { "amixer", "sset", "Master", "2%-", NULL };
 static const char *kblayoutcmd[] = { "kblayout", NULL };
 static const char *mpvclipcmd[] = { "mpvclip", NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *importcmd[]  = { "import", "-window", "root", "-quality", "100", "$(date +%F).png", NULL };
+static const char *importcmd[]  = { "printfull", NULL };
 static const char *slockcmd[]  = { "slock", NULL };
 
 
