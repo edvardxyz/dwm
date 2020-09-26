@@ -10,7 +10,7 @@ static const char *fonts[]          = { "Hack:pixelsize=12:antialias=true:autohi
 static const char dmenufont[]       = "Hack:pixelsize=12:antialias=true:autohint=true";
 static const char normbgcolor[]       = "#000000";
 static const char normbordercolor[]       = "#DFDFDF";
-static const char normfgcolor[]       = "#2257A0"";
+static const char normfgcolor[]       = "#2257A0";
 static const char selfgcolor[]       = "#ff6655";
 static const char selbordercolor[]        = "#21242b";
 static const char selbgcolor[]        = "#98be65";
@@ -82,7 +82,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_gray2, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *brightnessupcmd[] = { "brightnessctl", "s", "5%+", NULL };
 static const char *brightnessdowncmd[] = { "brightnessctl", "s", "5%-", NULL };
 static const char *volupcmd[] = { "amixer", "sset", "Master", "2%+", NULL };
