@@ -6,7 +6,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack:pixelsize=12:=true:autohint=true", "Wuncon Siji" };
+static const char *fonts[]          = { "Hack:pixelsize=12:=true:autohint=true"};
 static const char dmenufont[]       = "Hack:pixelsize=12:antialias=true:autohint=true";
 static const char normbgcolor[]     = "#1e1e1e";
 static const char normbordercolor[] = "#1e1e1e";
@@ -48,7 +48,7 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { " "," "," "," "," "," "," "," "," " };
+static const char *tags[] = { " 1"," 2"," 3"," 4"," 5"," 6"," 7"," 8"," 9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -71,9 +71,9 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ " ",      tile },    /* first entry is default */
-	{ " ",      NULL },    /* no layout function means floating behavior */
-	{ " ",      monocle },
+	{ " T",      tile },    /* first entry is default */
+	{ " F",      NULL },    /* no layout function means floating behavior */
+	{ " M",      monocle },
 };
 
 /* key definitions */
